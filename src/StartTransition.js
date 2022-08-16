@@ -18,9 +18,13 @@ export default function StartTransition() {
   const [flag, setFlag] = useState(false);
 
   function handleClick() {
+    //urgent state updates
     setCount((state) => ++state);
+
+    //mark any  state updates inside as transitions
     startTransition(() => {
       setTimeout(() => {
+        //transition shows the results
         setFlag((state) => !state);
       }, 1000);
     });
